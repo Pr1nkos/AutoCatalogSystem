@@ -1,57 +1,52 @@
 package ru.pr1nkos.autocatalogsystem;
 
 import java.io.*;
-import java.sql.*;
+import java.util.List;
+import java.util.logging.Logger;
 
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import static java.lang.System.out;
 
 @WebServlet("/CarServlet")
 public class CarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(CarServlet.class.getName());
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 		response.setContentType("text/html");
 		try (PrintWriter out = response.getWriter()) {
-
-			dataFromDB(out);
-		} catch (IOException e) {
-			out.println("Ошибка: " + e.getMessage());
+			showCarsFromDb(out);
+		}catch (Exception e){
+			e.printStackTrace(out);
 		}
 	}
 
-	private static void dataFromDB(PrintWriter out) {
+	private static void showCarsFromDb(PrintWriter out) {
 		try {
-			// Устанавливаем соединение с базой данных
-			String url = "jdbc:postgresql://localhost:5432/auto_db";
-			String username = "postgres";
-			String password = "1212";
-			try (Connection conn = DriverManager.getConnection(url,
-					username,
-					password)) {
+			SessionFactory sessionFactory = new Configuration().buildSessionFactory();
+			try (Session session = sessionFactory.openSession()) {
+				List<Car> cars = session.createNamedQuery("Car.findAll", Car.class).getResultList();
 
-				// Создаем запрос к базе данных
-				try (Statement stmt = conn.createStatement()) {
-					String sql = "SELECT * FROM cars ORDER BY id";
-					ResultSet rs = stmt.executeQuery(sql);
-
-					// Выводим HTML таблицу с данными о машинах
-					out.println("<html><body>");
-					out.println("<h2>Таблица с данными о машинах:</h2>");
-					out.println("<table border='1'><tr><th>ID</th><th>Марка</th><th>Модель</th><th>Дата производства</th><th>Цена</th><th>Тип</th><th>Страна</th></tr>");
-					while (rs.next()) {
-						out.printf("<tr><td>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>%n", rs.getInt("id"), rs.getString("brand"), rs.getString("model"), rs.getDate("production_date"), rs.getDouble("price"), rs.getString("type"), rs.getString("country"));
-					}
-					out.println("</table>");
-					out.println("</body></html>");
-					rs.close();
+				out.println("<html><body>");
+				out.println("<h1>Список машин:</h1>");
+				out.println("<ul>");
+				for (Car car : cars) {
+					out.println("<li>" + car.getBrand() + " " + car.getModel() + "</li>");
 				}
+				out.println("</ul>");
+				out.println("</body></html>");
+
 			}
-		} catch (SQLException e) {
-			out.println("Ошибка: " + e.getMessage());
+			sessionFactory.close();
+		} catch (HibernateException e) {
+			logger.info("Hibernate Exception");
 		}
 	}
 }
