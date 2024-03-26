@@ -26,3 +26,9 @@ O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
 j
 :src/main/java/ru/pr1nkos/autocatalogsystem/CarServlet.java,5\c\5ccb4245d239239c713284b0036b5403db28269a
+c
+3src/main/java/ru/pr1nkos/autocatalogsystem/Car.java,d\2\d20df0deda32ebcafee6b85a136e81a5d530ffd3
+F
+src/main/java/Car.java,c\9\c99b195bedf503e862ce1c8f6a69e5804f0e6bdd
+A
+src/main/Car.java,2\2\225c25c8304c40d6a32b6050968fa2d0d8ef9648
