@@ -28,7 +28,9 @@ j
 :src/main/java/ru/pr1nkos/autocatalogsystem/CarServlet.java,5\c\5ccb4245d239239c713284b0036b5403db28269a
 c
 3src/main/java/ru/pr1nkos/autocatalogsystem/Car.java,d\2\d20df0deda32ebcafee6b85a136e81a5d530ffd3
-F
-src/main/java/Car.java,c\9\c99b195bedf503e862ce1c8f6a69e5804f0e6bdd
-A
-src/main/Car.java,2\2\225c25c8304c40d6a32b6050968fa2d0d8ef9648
+m
+=src/main/java/ru/pr1nkos/autocatalogsystem/AddCarServlet.java,5\6\56bd6507a4d0aeb66724394f2b08e2ff25a68f4d
+p
+@src/main/java/ru/pr1nkos/autocatalogsystem/DeleteCarServlet.java,c\5\c541c6cb238875dbba0233e99d9a3e8cd6292314
+g
+7src/main/java/ru/pr1nkos/autocatalogsystem/AllCars.java,d\3\d3b33100639a182a05669b6d302ad7942f4ee50e

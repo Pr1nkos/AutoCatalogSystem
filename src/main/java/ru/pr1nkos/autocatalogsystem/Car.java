@@ -2,12 +2,11 @@ package ru.pr1nkos.autocatalogsystem;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
+
 import java.util.Date;
 
-@Entity
+@Entity(name = "Car")
 @Table(name = "cars")
-@NamedQuery(name = "Car.findAll", query = "SELECT c FROM Car c")
 public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +22,7 @@ public class Car {
 	private Date productionDate;
 
 	@Column(name = "price")
-	private BigDecimal price;
+	private double price;
 
 	@Column(name = "type")
 	private String type;
@@ -64,11 +63,11 @@ public class Car {
 		this.productionDate = productionDate;
 	}
 
-	public BigDecimal getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(BigDecimal price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -91,7 +90,7 @@ public class Car {
 	// Конструкторы
 	public Car() {}
 
-	public Car(String brand, String model, Date productionDate, BigDecimal price, String type, String country) {
+	public Car(String brand, String model, Date productionDate, double price, String type, String country) {
 		this.brand = brand;
 		this.model = model;
 		this.productionDate = productionDate;
