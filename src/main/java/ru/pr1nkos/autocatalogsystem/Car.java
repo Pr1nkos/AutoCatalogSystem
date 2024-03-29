@@ -2,8 +2,7 @@ package ru.pr1nkos.autocatalogsystem;
 
 import jakarta.persistence.*;
 
-
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity(name = "Car")
 @Table(name = "cars")
@@ -19,7 +18,7 @@ public class Car {
 	private String model;
 
 	@Column(name = "production_date")
-	private Date productionDate;
+	private LocalDate productionDate;
 
 	@Column(name = "price")
 	private double price;
@@ -30,9 +29,20 @@ public class Car {
 	@Column(name = "country")
 	private String country;
 
+	@Column(name = "imageurl")
+	private String imageURL;
+
 	// Геттеры и сеттеры
 	public Integer getId() {
 		return id;
+	}
+
+	public String getImageURL() {
+		return imageURL;
+	}
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
 	}
 
 	public void setId(Integer id) {
@@ -55,11 +65,11 @@ public class Car {
 		this.model = model;
 	}
 
-	public Date getProductionDate() {
+	public LocalDate getProductionDate() {
 		return productionDate;
 	}
 
-	public void setProductionDate(Date productionDate) {
+	public void setProductionDate(LocalDate productionDate) {
 		this.productionDate = productionDate;
 	}
 
@@ -88,9 +98,10 @@ public class Car {
 	}
 
 	// Конструкторы
-	public Car() {}
+	public Car() {
+	}
 
-	public Car(String brand, String model, Date productionDate, double price, String type, String country) {
+	public Car(String brand, String model, LocalDate productionDate, double price, String type, String country) {
 		this.brand = brand;
 		this.model = model;
 		this.productionDate = productionDate;

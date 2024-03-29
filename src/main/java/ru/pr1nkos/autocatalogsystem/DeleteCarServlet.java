@@ -28,7 +28,7 @@ public class DeleteCarServlet extends HttpServlet {
 				Car car = session.get(Car.class, carId);
 				if (car != null) {
 					// Если машина найдена, удаляем её
-					session.delete(car);
+					session.remove(car);
 					transaction.commit();
 					response.getWriter().println("Машина успешно удалена из базы данных.");
 				}
@@ -41,8 +41,15 @@ public class DeleteCarServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			// В случае ошибки отправляем пользователю сообщение об ошибке
-			response.getWriter().println("Ошибка при удалении машины из базы данных.");
+			try {
+				response.getWriter().println("Ошибка при удалении машины из базы данных.");
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+
 		}
 		response.sendRedirect("index.jsp");
 	}
+
+
 }

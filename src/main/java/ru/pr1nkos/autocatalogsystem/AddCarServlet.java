@@ -11,11 +11,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet("/AddCarServlet")
 public class AddCarServlet extends HttpServlet {
@@ -25,11 +22,11 @@ public class AddCarServlet extends HttpServlet {
 		String brand = request.getParameter("brand");
 		String model = request.getParameter("model");
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date productionDate;
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate productionDate;
 		try {
-			productionDate = dateFormat.parse(request.getParameter("productionDate"));
-		} catch (ParseException e) {
+			productionDate = LocalDate.parse(request.getParameter("productionDate"), dateFormat);
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 
@@ -56,4 +53,6 @@ public class AddCarServlet extends HttpServlet {
 		}
 		response.sendRedirect("index.jsp");
 	}
+
+
 }
