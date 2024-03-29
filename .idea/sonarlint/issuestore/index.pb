@@ -24,8 +24,6 @@ Q.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140
 Q.idea/sonarlint/securityhotspotstore/8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded,b\a\ba553ac59b6707e71c75d153a30b48955826938d
 O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
-j
-:src/main/java/ru/pr1nkos/autocatalogsystem/CarServlet.java,5\c\5ccb4245d239239c713284b0036b5403db28269a
 c
 3src/main/java/ru/pr1nkos/autocatalogsystem/Car.java,d\2\d20df0deda32ebcafee6b85a136e81a5d530ffd3
 m
@@ -34,3 +32,9 @@ p
 @src/main/java/ru/pr1nkos/autocatalogsystem/DeleteCarServlet.java,c\5\c541c6cb238875dbba0233e99d9a3e8cd6292314
 g
 7src/main/java/ru/pr1nkos/autocatalogsystem/AllCars.java,d\3\d3b33100639a182a05669b6d302ad7942f4ee50e
+n
+>src/main/java/ru/pr1nkos/autocatalogsystem/CarListServlet.java,6\9\693f52f0e97946bf17b448b8a60d0b41a648cbe5
+l
+<src/main/java/ru/pr1nkos/autocatalogsystem/ImagesFilter.java,5\a\5ad98e650977a78529b417b275f988ca1629ce33
+W
+'src/main/resources/hibernate.properties,a\c\ac770fe9478d530a77fce01d5082e3ea043e98d7
