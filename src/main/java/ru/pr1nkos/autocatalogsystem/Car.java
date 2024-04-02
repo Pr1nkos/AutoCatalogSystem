@@ -3,6 +3,7 @@ package ru.pr1nkos.autocatalogsystem;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity(name = "Car")
 @Table(name = "cars")
@@ -32,7 +33,6 @@ public class Car {
 	@Column(name = "image_url")
 	private String imageURL;
 
-	// Геттеры и сеттеры
 	public Integer getId() {
 		return id;
 	}
@@ -110,4 +110,30 @@ public class Car {
 		this.country = country;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Car car = (Car) o;
+		return Double.compare(price, car.price) == 0 && Objects.equals(id, car.id) && Objects.equals(brand, car.brand) && Objects.equals(model, car.model) && Objects.equals(productionDate, car.productionDate) && Objects.equals(type, car.type) && Objects.equals(country, car.country) && Objects.equals(imageURL, car.imageURL);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, brand, model, productionDate, price, type, country, imageURL);
+	}
+
+	@Override
+	public String toString() {
+		return "Car{" +
+				"id=" + id +
+				", brand='" + brand + '\'' +
+				", model='" + model + '\'' +
+				", productionDate=" + productionDate +
+				", price=" + price +
+				", type='" + type + '\'' +
+				", country='" + country + '\'' +
+				", imageURL='" + imageURL + '\'' +
+				'}';
+	}
 }

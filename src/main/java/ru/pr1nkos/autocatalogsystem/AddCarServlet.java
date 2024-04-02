@@ -24,51 +24,43 @@ import java.time.format.DateTimeFormatter;
 public class AddCarServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, RuntimeException {
-		// Получаем параметры из формы
 		String brand = request.getParameter("brand");
 		String model = request.getParameter("model");
 		Part imagePart = request.getPart("image");
-		String imageName = "car_" + System.currentTimeMillis() + ".jpg"; // Генерируем уникальное имя файла
+		String imageName = model + ".jpg"; // Генерируем уникальное имя файла
 		String imagePath = getServletContext().getRealPath("/resources/images/") + imageName; // Полный путь к папке для сохранения изображений на сервере
-
+		String imageURL = "resources/images/" + imageName;
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		LocalDate productionDate;
-		try {
-			productionDate = LocalDate.parse(request.getParameter("productionDate"), dateFormat);
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+		LocalDate productionDate = LocalDate.parse
+				(request.getParameter("productionDate"), dateFormat);
 
-		try (InputStream inputStream = imagePart.getInputStream();
-		     OutputStream outputStream = new FileOutputStream(imagePath)) {
-			byte[] buffer = new byte[4096];
-			int bytesRead;
-			while ((bytesRead = inputStream.read(buffer)) != -1) {
-				outputStream.write(buffer, 0, bytesRead);
+		try (InputStream inputStream = imagePart.getInputStream()) {
+			try (OutputStream outputStream = new FileOutputStream(imagePath)) {
+				byte[] buffer = new byte[4096];
+				int bytesRead;
+				while ((bytesRead = inputStream.read(buffer)) != -1) {
+					outputStream.write(buffer, 0, bytesRead);
+				}
 			}
 		}
-		String imageURL = request.getContextPath() + "/resources/images/" + imageName;
+
 		double price = Double.parseDouble(request.getParameter("price"));
 		String type = request.getParameter("type");
 		String country = request.getParameter("country");
 
-		// Создаем объект машины
 		Car car = new Car(brand, model, productionDate, price, type, country);
+
+
 		car.setImageURL(imageURL);
-		// Сохраняем машину в базе данных с помощью Hibernate
-		try {
-			SessionFactory sessionFactory = new Configuration().addAnnotatedClass(Car.class).buildSessionFactory();
-			try (Session session = sessionFactory.openSession()) {
-				Transaction transaction = session.beginTransaction();
-				session.save(car);
-				transaction.commit();
-			}
-			sessionFactory.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-			// В случае ошибки отправляем пользователю сообщение об ошибке
-			response.getWriter().println("Ошибка при добавлении машины в базу данных.");
+
+
+		SessionFactory sessionFactory = new Configuration().addAnnotatedClass(Car.class).buildSessionFactory();
+		try (Session session = sessionFactory.openSession()) {
+			Transaction transaction = session.beginTransaction();
+			session.persist(car);
+			transaction.commit();
 		}
+		sessionFactory.close();
 		response.sendRedirect("index.jsp");
 	}
 
