@@ -29,7 +29,7 @@ public class Car {
 	@Column(name = "country")
 	private String country;
 
-	@Column(name = "imageurl")
+	@Column(name = "image_url")
 	private String imageURL;
 
 	// Геттеры и сеттеры

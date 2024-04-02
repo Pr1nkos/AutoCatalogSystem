@@ -32,9 +32,13 @@ p
 @src/main/java/ru/pr1nkos/autocatalogsystem/DeleteCarServlet.java,c\5\c541c6cb238875dbba0233e99d9a3e8cd6292314
 g
 7src/main/java/ru/pr1nkos/autocatalogsystem/AllCars.java,d\3\d3b33100639a182a05669b6d302ad7942f4ee50e
-n
->src/main/java/ru/pr1nkos/autocatalogsystem/CarListServlet.java,6\9\693f52f0e97946bf17b448b8a60d0b41a648cbe5
 l
 <src/main/java/ru/pr1nkos/autocatalogsystem/ImagesFilter.java,5\a\5ad98e650977a78529b417b275f988ca1629ce33
 W
 'src/main/resources/hibernate.properties,a\c\ac770fe9478d530a77fce01d5082e3ea043e98d7
+X
+(src/main/webapp/resources/changelog.yaml,e\5\e5e951877f93a7e21b94344c65d8a308ff332534
+D
+liquibase.properties,4\5\45156c9273acb0a15ad98105a4415b92bf51bac9
+E
+example-changelog.sql,d\3\d3d2956dc6ad3fef71dc7bc985d4beb3275317b3

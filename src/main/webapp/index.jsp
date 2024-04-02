@@ -63,25 +63,29 @@
 <body>
 <h1>Автосалон Серафима</h1>
 <br/>
-<div id="carContainer">
-</div>
 <!-- Кнопка для вызова всплывающего окна добавления машины -->
 <button onclick="openAddCarModal()">Добавить машину</button>
 <!-- Кнопка для вызова всплывающего окна удаления машины -->
 <button onclick="openDeleteCarModal()">Удалить машину</button>
+<div id="carContainer">
+</div>
+
+
 <!-- Всплывающее окно добавления машины -->
 
 <div id="addCarModal" class="modal">
     <div class="modal-content">
         <!-- Форма добавления машины -->
         <h2>Добавление новой машины</h2>
-        <form action="AddCarServlet" method="post">
+        <form action="AddCarServlet" method="post" enctype="multipart/form-data">
             Марка: <input type="text" name="brand"><br>
             Модель: <input type="text" name="model"><br>
             Дата производства: <input type="date" name="productionDate"><br>
             Цена: <input type="number" name="price"><br>
             Тип: <input type="text" name="type"><br>
             Страна производитель: <input type="text" name="country"><br>
+            <%--            TODO Сделать логику загрузки изображения--%>
+            Изображение: <input type="file" name="image"><br>
             <input type="submit" value="Добавить">
         </form>
         <button onclick="closeModal()">Закрыть</button>
