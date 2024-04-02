@@ -31,9 +31,9 @@ databaseChangeLog:
                   name: country
                   type: varchar(255)
               - column:
-                  name: image_url
+                  name: imageurl
                   type: varchar(255)
-
+      validCheckSum: '9:f58d56e7742b24932cb009573657a9b6'
   - changeSet:
       id: insert-data
       author: pr1nkos

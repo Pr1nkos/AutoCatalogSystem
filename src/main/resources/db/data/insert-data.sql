@@ -1,4 +1,4 @@
-INSERT INTO cars (brand, model, production_date, price, type, country, imageurl)
+INSERT INTO cars (brand, model, production_date, price, type, country, image_url)
 VALUES ('Renault', 'Arkanam', '2023-01-01', 25000, 'SUV', 'France', 'resources/images/Arcanum.jpg'),
        ('BMW', 'X4', '2022-10-05', 52000, 'SUV', 'Germany', 'resources/images/BMW_X4.jpg'),
        ('BMW', '8 Series', '2020-10-10', 80000, 'Coupe', 'Germany', 'resources/images/BMW_8.jpg'),
@@ -20,6 +20,4 @@ VALUES ('Renault', 'Arkanam', '2023-01-01', 25000, 'SUV', 'France', 'resources/i
        ('BMW', 'X1', '2022-04-15', 38000, 'SUV', 'Germany', 'resources/images/BMW_X1.jpg'),
        ('BMW', '6 Series', '2021-12-01', 60000, 'Coupe', 'Germany', 'resources/images/BMW_6.jpg'),
        ('BMW', '4 Series', '2022-07-10', 50000, 'Coupe', 'Germany', 'resources/images/BMW_4.jpg'),
-       ('Renault', 'Duster', '2021-12-01', 30000, 'SUV', 'France', 'resources/images/Duster.jpg'),
-       ('Chevrolet', 'Camaro', '2024-04-24', 2, 'Седан', 'Франция',
-        '/AutoCatalogSystem_war_exploded/resources/images/car_1712043908677.jpg');
+       ('Renault', 'Duster', '2021-12-01', 30000, 'SUV', 'France', 'resources/images/Duster.jpg');

@@ -1,6 +1,5 @@
 package ru.pr1nkos.autocatalogsystem;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,14 +17,11 @@ import java.util.List;
 public class AllCars extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		try {
-			// Получаем список машин из базы данных
 			List<Car> cars = getCarsFromDatabase();
-
-			// Выводим каждую машину
 			out.println("<html><body>");
 			out.println("<h1>Список машин:</h1>");
 			out.println("<div style=\"display: flex; flex-wrap: wrap;\">"); // Форматирование в виде блоков
@@ -50,13 +46,12 @@ public class AllCars extends HttpServlet {
 		}
 	}
 
-	// Метод для получения списка машин из базы данных
+
 	private List<Car> getCarsFromDatabase() {
-		SessionFactory sessionFactory = new Configuration().addAnnotatedClass(Car.class).buildSessionFactory();
-		try (Session session = sessionFactory.openSession()) {
-			return session.createQuery("SELECT c from Car c ORDER BY id", Car.class).getResultList();
-		} finally {
-			sessionFactory.close();
+		try (SessionFactory sessionFactory = new Configuration().addAnnotatedClass(Car.class).buildSessionFactory()) {
+			try (Session session = sessionFactory.openSession()) {
+				return session.createQuery("SELECT c from Car c ORDER BY id", Car.class).getResultList();
+			}
 		}
 	}
 }
