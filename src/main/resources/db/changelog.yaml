@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-tables
+      author: pr1nkos
+      changes:
+        - createTable:
+            tableName: cars
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: brand
+                  type: varchar(255)
+              - column:
+                  name: model
+                  type: varchar(255)
+              - column:
+                  name: production_date
+                  type: date
+              - column:
+                  name: price
+                  type: double
+              - column:
+                  name: type
+                  type: varchar(255)
+              - column:
+                  name: country
+                  type: varchar(255)
+              - column:
+                  name: image_url
+                  type: varchar(255)
+
+  - changeSet:
+      id: insert-data
+      author: pr1nkos
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            path: db/data/insert-data.sql
