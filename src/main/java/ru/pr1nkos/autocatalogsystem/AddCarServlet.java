@@ -23,12 +23,13 @@ import java.time.format.DateTimeFormatter;
 @MultipartConfig
 public class AddCarServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, RuntimeException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, RuntimeException {
 		String brand = request.getParameter("brand");
 		String model = request.getParameter("model");
 		Part imagePart = request.getPart("image");
 		String imageName = model + ".jpg"; // Генерируем уникальное имя файла
-		String imagePath = getServletContext().getRealPath("/resources/images/") + imageName; // Полный путь к папке для сохранения изображений на сервере
+		String imagePath = getServletContext().getRealPath("/resources/images/") + imageName;
 		String imageURL = "resources/images/" + imageName;
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate productionDate = LocalDate.parse
@@ -38,9 +39,8 @@ public class AddCarServlet extends HttpServlet {
 			try (OutputStream outputStream = new FileOutputStream(imagePath)) {
 				byte[] buffer = new byte[4096];
 				int bytesRead;
-				while ((bytesRead = inputStream.read(buffer)) != -1) {
+				while (-1 != (bytesRead = inputStream.read(buffer)))
 					outputStream.write(buffer, 0, bytesRead);
-				}
 			}
 		}
 
@@ -54,7 +54,8 @@ public class AddCarServlet extends HttpServlet {
 		car.setImageURL(imageURL);
 
 
-		SessionFactory sessionFactory = new Configuration().addAnnotatedClass(Car.class).buildSessionFactory();
+		SessionFactory sessionFactory =
+				new Configuration().addAnnotatedClass(Car.class).buildSessionFactory();
 		try (Session session = sessionFactory.openSession()) {
 			Transaction transaction = session.beginTransaction();
 			session.persist(car);

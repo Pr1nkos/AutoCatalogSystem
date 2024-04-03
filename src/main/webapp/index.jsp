@@ -30,13 +30,30 @@
     <div class="modal-content">
         <h2>Добавление новой машины</h2>
         <form action="AddCarServlet" method="post" enctype="multipart/form-data">
-            <input class="form-input" type="text" name="brand" placeholder="Марка">
-            <input class="form-input" type="text" name="model" placeholder="Модель">
-            <input class="form-input" type="date" name="productionDate" placeholder="Дата производства">
-            <input class="form-input" type="number" name="price" placeholder="Цена">
-            <input class="form-input" type="text" name="type" placeholder="Тип">
-            <input class="form-input" type="text" name="country" placeholder="Страна производитель">
-            <input class="form-input" type="file" name="image" accept="image/*" placeholder="Изображение">
+            <label for="brand">Марка</label>
+            <input id="brand" class="form-input" type="text" name="brand" placeholder="Марка">
+
+            <label for="model">Модель</label>
+            <input id="model" class="form-input" type="text" name="model" placeholder="Модель">
+
+            <label for="productionDate">Дата производства</label>
+            <input id="productionDate" class="form-input" type="date" name="productionDate"
+                   placeholder="Дата производства">
+
+            <label for="price">Цена</label>
+            <input id="price" class="form-input" type="number" name="price" placeholder="Цена">
+
+            <label for="type">Тип</label>
+            <input id="type" class="form-input" type="text" name="type" placeholder="Тип">
+
+            <label for="country">Страна производитель</label>
+            <input id="country" class="form-input" type="text" name="country" placeholder="Страна производитель">
+
+            <div class="file-input">
+                <label for="file">Выберите файл изображения</label>
+                <input id="file" class="form-input" type="file" name="image" accept="image/jpeg"
+                       placeholder="Изображение">
+            </div>
             <input class="form-input" type="submit" value="Добавить">
         </form>
         <button class="button" onclick="closeModal()">Закрыть</button>
@@ -48,7 +65,8 @@
     <div class="modal-content">
         <h2>Удаление машины</h2>
         <form action="DeleteCarServlet" method="post">
-            <input class="form-input" type="text" name="carId" placeholder="Удалить по идентификатору">
+            <label for="carId">Тип</label>
+            <input id="carId" class="form-input" type="text" name="carId" placeholder="Удалить по идентификатору">
             <input class="form-input" type="submit" value="Удалить">
         </form>
         <button class="button" onclick="closeModal()">Закрыть</button>
