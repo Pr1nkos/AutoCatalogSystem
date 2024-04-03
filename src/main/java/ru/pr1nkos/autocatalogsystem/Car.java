@@ -101,7 +101,8 @@ public class Car {
 	public Car() {
 	}
 
-	public Car(String brand, String model, LocalDate productionDate, double price, String type, String country) {
+	public Car(String brand, String model, LocalDate productionDate,
+	           double price, String type, String country) {
 		this.brand = brand;
 		this.model = model;
 		this.productionDate = productionDate;
@@ -115,7 +116,12 @@ public class Car {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Car car = (Car) o;
-		return Double.compare(price, car.price) == 0 && Objects.equals(id, car.id) && Objects.equals(brand, car.brand) && Objects.equals(model, car.model) && Objects.equals(productionDate, car.productionDate) && Objects.equals(type, car.type) && Objects.equals(country, car.country) && Objects.equals(imageURL, car.imageURL);
+		return Double.compare(price, car.price) == 0 && Objects.equals(id, car.id)
+				&& Objects.equals(brand, car.brand)
+				&& Objects.equals(model, car.model)
+				&& Objects.equals(productionDate, car.productionDate)
+				&& Objects.equals(type, car.type) && Objects.equals(country, car.country)
+				&& Objects.equals(imageURL, car.imageURL);
 	}
 
 	@Override
@@ -136,4 +142,6 @@ public class Car {
 				", imageURL='" + imageURL + '\'' +
 				'}';
 	}
+
+
 }

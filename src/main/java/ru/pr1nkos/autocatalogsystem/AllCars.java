@@ -24,11 +24,13 @@ public class AllCars extends HttpServlet {
 			List<Car> cars = getCarsFromDatabase();
 			out.println("<html><body>");
 			out.println("<h1>Список машин:</h1>");
-			out.println("<div style=\"display: flex; flex-wrap: wrap;\">"); // Форматирование в виде блоков
+			out.println("<div style=\"display: flex; flex-wrap: wrap;\">");
 
 			for (Car car : cars) {
 				out.println("<div class=\"car\">");
-				out.println("<img src=\"" + car.getImageURL() + "\" alt=\"" + car.getBrand() + " " + car.getModel() + "\">");
+				out.println("<p><strong>ID: " + car.getId() + "</strong></p>");
+				out.println("<img src=\"" + car.getImageURL() + "\" alt=\""
+						+ car.getBrand() + " " + car.getModel() + "\">");
 				out.println("<p><strong>" + car.getBrand() + " " + car.getModel() + "</strong></p>");
 				out.println("<p>Дата производства: " + car.getProductionDate() + "</p>");
 				out.println("<p>Цена: " + car.getPrice() + " руб.</p>");
@@ -48,7 +50,8 @@ public class AllCars extends HttpServlet {
 
 
 	private List<Car> getCarsFromDatabase() {
-		try (SessionFactory sessionFactory = new Configuration().addAnnotatedClass(Car.class).buildSessionFactory()) {
+		try (SessionFactory sessionFactory =
+				     new Configuration().addAnnotatedClass(Car.class).buildSessionFactory()) {
 			try (Session session = sessionFactory.openSession()) {
 				return session.createQuery("SELECT c from Car c ORDER BY id", Car.class).getResultList();
 			}

@@ -17,16 +17,18 @@ import java.nio.file.Paths;
 @WebServlet("/DeleteCarServlet")
 public class DeleteCarServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, NumberFormatException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, NumberFormatException {
 		int carId = Integer.parseInt(request.getParameter("carId"));
-		SessionFactory sessionFactory = new Configuration().addAnnotatedClass(Car.class).buildSessionFactory();
+		SessionFactory sessionFactory =
+				new Configuration().addAnnotatedClass(Car.class).buildSessionFactory();
 		try (Session session = sessionFactory.openSession()) {
 			Transaction transaction = session.beginTransaction();
 			Car car = session.get(Car.class, carId);
 			if (car != null) {
-				String imagePath = getServletContext().getRealPath("/resources/images/");
+				String imagePath = getServletContext().getRealPath("/resources/images/") + car.getImageURL();
 				Path path = Paths.get(imagePath);
-				Files.delete(path);
+				Files.deleteIfExists(path);
 				session.remove(car);
 				transaction.commit();
 				response.getWriter().println("Машина и изображение успешно удалены из базы данных.");
