@@ -1,4 +1,4 @@
-package ru.pr1nkos.autocatalogsystem;
+package ru.pr1nkos.autocatalogsystem.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
@@ -15,11 +15,9 @@ public class ImagesFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		String path = ((HttpServletRequest) request).getRequestURI();
-
 		ServletContext context = request.getServletContext();
 		String fullPath = context.getRealPath(path);
 		File file = new File(fullPath);
-
 		if (file.exists()) {
 			chain.doFilter(request, response);
 		}
