@@ -23,7 +23,7 @@ databaseChangeLog:
                   type: date
               - column:
                   name: price
-                  type: double
+                  type: decimal(10, 2)
               - column:
                   name: type
                   type: varchar(255)
