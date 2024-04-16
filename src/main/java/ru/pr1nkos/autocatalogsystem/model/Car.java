@@ -47,4 +47,5 @@ public class Car {
 		this.country = country;
 		this.imageURL = imageURL;
 	}
+
 }
