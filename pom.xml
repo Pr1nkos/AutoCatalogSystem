@@ -91,19 +91,19 @@
                 <version>3.4.0</version>
             </plugin>
             <!-- Liquibase Maven Plugin -->
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>4.27.0</version>
-                <configuration>
-                    <!-- Путь к файлу changelog -->
-                    <changeLogFile>src/main/resources/db/changelog.yaml</changeLogFile>
-                    <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://localhost:5432/auto_db</url>
-                    <username>postgres</username>
-                    <password>1212</password>
-                </configuration>
-            </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>org.liquibase</groupId>-->
+            <!--                <artifactId>liquibase-maven-plugin</artifactId>-->
+            <!--                <version>4.27.0</version>-->
+            <!--                <configuration>-->
+            <!--                    &lt;!&ndash; Путь к файлу changelog &ndash;&gt;-->
+            <!--                    <changeLogFile>src/main/resources/db/changelog.yaml</changeLogFile>-->
+            <!--                    <driver>org.postgresql.Driver</driver>-->
+            <!--                    <url>jdbc:postgresql://localhost:5432/auto_db</url>-->
+            <!--                    <username>postgres</username>-->
+            <!--                    <password>1212</password>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
         </plugins>
 
 
