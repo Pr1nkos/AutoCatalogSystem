@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1212
+    ports:
+      - "5433:5432"
+
+  tomcat:
+    image: tomcat:latest
+    restart: always
+    volumes:
+      - ./target/AutoCatalogSystem-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/AutoCatalogSystem.war  # Копируем WAR-файл вашего приложения в директорию развертывания Tomcat
+    ports:
+      - "8083:8080"
+    depends_on:
+      - postgres

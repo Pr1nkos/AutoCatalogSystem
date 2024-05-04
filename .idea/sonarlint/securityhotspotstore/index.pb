@@ -50,3 +50,14 @@ N
 Osrc/main/java/ru/pr1nkos/autocatalogsystem/listener/SessionFactoryListener.java,d\8\d8d4a0214882179a8bc1afb81ee3f5082a89faca
 7
 LICENSE,0\3\0398ccd0f49298b10a3d76a47800d2ebecd49859
+:
+
+Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+}
+Msrc/main/java/ru/pr1nkos/autocatalogsystem/filter/HiddenHttpMethodFilter.java,2\3\23ed5cdca0348ced131d83055a44f142dfd0fccb
+v
+Fsrc/main/java/ru/pr1nkos/autocatalogsystem/filter/CarDeleteFilter.java,2\a\2aa6a63ae8b11febbfee8126c152cf90941a5bc3
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
+v
+Fsrc/main/java/ru/pr1nkos/autocatalogsystem/config/LiquibaseConfig.java,0\2\026a3adc5e433aa3a01a2c902f8e6aca0c34467d

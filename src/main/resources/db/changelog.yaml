@@ -1,43 +1,8 @@
 databaseChangeLog:
   - changeSet:
-      id: create-tables
-      author: pr1nkos
-      changes:
-        - createTable:
-            tableName: cars
-            columns:
-              - column:
-                  name: id
-                  type: int
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-              - column:
-                  name: brand
-                  type: varchar(255)
-              - column:
-                  name: model
-                  type: varchar(255)
-              - column:
-                  name: production_date
-                  type: date
-              - column:
-                  name: price
-                  type: decimal(10, 2)
-              - column:
-                  name: type
-                  type: varchar(255)
-              - column:
-                  name: country
-                  type: varchar(255)
-              - column:
-                  name: image_url
-                  type: varchar(255)
-      validCheckSum: '9:f58d56e7742b24932cb009573657a9b6'
-  - changeSet:
-      id: insert-data
+      id: insert-cars-data
       author: pr1nkos
       changes:
         - sqlFile:
             dbms: postgresql
-            path: db/data/insert-data.sql
+            path: db/data/insert_data.sql

@@ -2,6 +2,7 @@ package ru.pr1nkos.autocatalogsystem.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,14 +40,5 @@ public class Car {
 	@Column(name = "image_url")
 	private String imageURL;
 
-	public Car(String brand, String model, LocalDate productionDate, double price, String type, String country, String imageURL) {
-		this.brand = brand;
-		this.model = model;
-		this.productionDate = productionDate;
-		this.price = price;
-		this.type = type;
-		this.country = country;
-		this.imageURL = imageURL;
-	}
 
 }

@@ -80,6 +80,11 @@
             <version>1.18.32</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.activecomponents.jadex</groupId>
+            <artifactId>jadex-tools-servletfilter</artifactId>
+            <version>4.0.267</version>
+        </dependency>
 
     </dependencies>
 
@@ -87,23 +92,15 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.4.0</version>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <!-- Укажите файлы, которые вы хотите исключить из JAR -->
+                    <excludes>
+                        <exclude>db/data/liquibasemigrates.xml</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
-            <!-- Liquibase Maven Plugin -->
-            <!--            <plugin>-->
-            <!--                <groupId>org.liquibase</groupId>-->
-            <!--                <artifactId>liquibase-maven-plugin</artifactId>-->
-            <!--                <version>4.27.0</version>-->
-            <!--                <configuration>-->
-            <!--                    &lt;!&ndash; Путь к файлу changelog &ndash;&gt;-->
-            <!--                    <changeLogFile>src/main/resources/db/changelog.yaml</changeLogFile>-->
-            <!--                    <driver>org.postgresql.Driver</driver>-->
-            <!--                    <url>jdbc:postgresql://localhost:5432/auto_db</url>-->
-            <!--                    <username>postgres</username>-->
-            <!--                    <password>1212</password>-->
-            <!--                </configuration>-->
-            <!--            </plugin>-->
         </plugins>
 
 
