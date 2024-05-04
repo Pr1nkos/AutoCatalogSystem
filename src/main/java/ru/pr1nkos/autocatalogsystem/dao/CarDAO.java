@@ -1,5 +1,6 @@
 package ru.pr1nkos.autocatalogsystem.dao;
 
+import lombok.AllArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -7,12 +8,9 @@ import ru.pr1nkos.autocatalogsystem.model.Car;
 
 import java.util.List;
 
+@AllArgsConstructor
 public class CarDAO {
-	private final SessionFactory sessionFactory;
-
-	public CarDAO(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+	private SessionFactory sessionFactory;
 
 	public void addCar(Car car) {
 		try (Session session = sessionFactory.openSession()) {

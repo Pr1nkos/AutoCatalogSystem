@@ -32,7 +32,7 @@
     - Создайте новую базу данных PostgreSQL с именем "auto_db".
     - Обновите значения параметров подключения в файлах `hibernate.properties` и `liquibase.properties`.
     - Выполните `liquibase update`, чтобы импортировать бэкап базы данных. Файл с дампом лежит
-      в `src/main/resources/db/data/insert-data.sql`.
+      в `src/main/resources/db/data/insert_data.sql`.
 
 3. **Сборка и запуск**:
     - Используйте Maven для сборки проекта: `mvn clean package`.
@@ -49,7 +49,7 @@
     - Создайте новую базу данных PostgreSQL с именем "auto_db".
     - Обновите значения параметров подключения в файлах `hibernate.properties` и `liquibase.properties`.
     - Запустите Liquibase, чтобы импортировать бэкап базы данных. Файл с дампом лежит
-      в `src/main/resources/db/data/insert-data.sql`.
+      в `src/main/resources/db/data/insert_data.sql`.
 
 3. **Запуск**:
     - Поместите предварительно собранный WAR-файл (`AutoCatalogSystem-1.0-SNAPSHOT.war`) в директорию Tomcat `webapps`.

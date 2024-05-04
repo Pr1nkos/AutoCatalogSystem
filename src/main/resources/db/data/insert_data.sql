@@ -1,14 +1,3 @@
-CREATE TABLE IF NOT EXISTS cars
-(
-    id              SERIAL PRIMARY KEY,
-    brand           VARCHAR(255)   NOT NULL,
-    model           VARCHAR(255)   NOT NULL,
-    production_date DATE           NOT NULL,
-    price           NUMERIC(10, 2) NOT NULL,
-    type            VARCHAR(255)   NOT NULL,
-    country         VARCHAR(255)   NOT NULL,
-    image_url       VARCHAR(255)   NOT NULL
-);
 INSERT INTO cars (brand, model, production_date, price, type, country, image_url)
 VALUES ('Renault', 'Arkanam', '2023-01-01', 25000, 'SUV', 'France', '../resources/images/Arcanum.jpg'),
        ('BMW', 'X4', '2022-10-05', 52000, 'SUV', 'Germany', '../resources/images/BMW_X4.jpg'),
