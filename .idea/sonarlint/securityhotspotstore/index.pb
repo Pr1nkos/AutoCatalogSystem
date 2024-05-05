@@ -53,11 +53,11 @@ Osrc/main/java/ru/pr1nkos/autocatalogsystem/listener/SessionFactoryListener.java
 :
 
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
-}
-Msrc/main/java/ru/pr1nkos/autocatalogsystem/filter/HiddenHttpMethodFilter.java,2\3\23ed5cdca0348ced131d83055a44f142dfd0fccb
 v
 Fsrc/main/java/ru/pr1nkos/autocatalogsystem/filter/CarDeleteFilter.java,2\a\2aa6a63ae8b11febbfee8126c152cf90941a5bc3
 B
 docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
 v
 Fsrc/main/java/ru/pr1nkos/autocatalogsystem/config/LiquibaseConfig.java,0\2\026a3adc5e433aa3a01a2c902f8e6aca0c34467d
+E
+AutoCatalogSystem.iml,7\9\79a2d57a61cac64279f4c0ae1e1da402591ea5b6

@@ -5,4 +5,4 @@ databaseChangeLog:
       changes:
         - sqlFile:
             dbms: postgresql
-            path: db/data/insert_data.sql
+            path: /data/insert_data.sql
