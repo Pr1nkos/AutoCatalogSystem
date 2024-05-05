@@ -1,8 +1,0 @@
-databaseChangeLog:
-  - changeSet:
-      id: insert-cars-data
-      author: pr1nkos
-      changes:
-        - sqlFile:
-            dbms: postgresql
-            path: /data/insert_data.sql

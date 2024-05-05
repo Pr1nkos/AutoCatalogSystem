@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   postgres:
+    container_name: postgres
     image: postgres:latest
     restart: always
     environment:
@@ -12,6 +13,7 @@ services:
       - "5433:5432"
 
   tomcat:
+    container_name: tomcat
     image: tomcat:latest
     restart: always
     volumes:
