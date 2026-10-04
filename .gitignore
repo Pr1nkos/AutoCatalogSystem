@@ -39,3 +39,6 @@ build/
 /.idea/
 
 /.idea/
+
+# IDE
+.idea/
